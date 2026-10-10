@@ -1,0 +1,440 @@
+```html
+<!DOCTYPE html>
+<html lang="ps" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>خان بازار ۲۰۲۶ | د افغانستان لومړی پرمختللی الماسي مارکېټ</title>
+    
+    <!-- Google Site Verification Tag -->
+    <meta name="google-site-verification" content="google-site-verification-code-here" />
+    
+    <!-- External Libraries: Tailwind CSS, FontAwesome 6, AOS Animations -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        khanDark: '#0a0f1e',
+                        khanBody: '#111827',
+                        khanBlue: '#3b82f6',
+                        khanAmber: '#f59e0b',
+                        khanGlass: 'rgba(255, 255, 255, 0.03)',
+                    },
+                    boxShadow: {
+                        'neon-blue': '0 0 20px rgba(59, 130, 246, 0.4)',
+                        'neon-amber': '0 0 20px rgba(245, 158, 11, 0.4)',
+                        'neon-emerald': '0 0 20px rgba(16, 185, 129, 0.4)',
+                        'neon-purple': '0 0 20px rgba(168, 85, 247, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800;900&display=swap');
+        
+        :root { --font-vazir: 'Vazirmatn', sans-serif; }
+        body { font-family: var(--font-vazir); background-color: #0a0f1e; color: #d1d5db; overflow-x: hidden; padding-bottom: 80px; }
+        @media (min-width: 768px) { body { padding-bottom: 0; } }
+
+        /* Glassmorphism Effect */
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glass-card { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.06); }
+        
+        /* 2026 Hover Zoom & Animations */
+        .product-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; }
+        .product-card:hover { transform: translateY(-8px) scale(1.015); box-shadow: 0 20px 35px rgba(0,0,0,0.6); border-color: rgba(59, 130, 246, 0.4); }
+        
+        .product-image-container { overflow: hidden; position: relative; }
+        .product-image { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .product-card:hover .product-image { transform: scale(1.12); }
+
+        /* Neon Loading Indicator Bar */
+        .neon-bar { position: relative; overflow: hidden; }
+        .neon-bar::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.9), rgba(245, 158, 11, 0.9), transparent); animation: neonLoading 2.5s infinite; }
+        @keyframes neonLoading { 100% { left: 100%; } }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0f1e; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-600 selection:text-white">
+
+    <!-- Preloader Top Loading Bar -->
+    <div class="fixed top-0 left-0 right-0 h-1 z-[100] neon-bar bg-slate-900"></div>
+
+    <!-- Header Navigation -->
+    <header class="glass sticky top-0 z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+            <!-- Khan Market Brand Logo -->
+            <div class="flex items-center space-x-3 space-x-reverse" data-aos="fade-left">
+                <div class="bg-gradient-to-tr from-blue-700 to-blue-500 text-white font-extrabold p-2.5 rounded-2xl text-xl flex items-center justify-center w-12 h-12 shadow-neon-blue transition-transform hover:rotate-6 hover:scale-105">
+                    <i class="fa-solid fa-store"></i>
+                </div>
+                <div>
+                    <h1 class="font-black text-xl sm:text-2xl leading-none text-white tracking-tight">KHAN<span class="text-amber-400">MARKET</span></h1>
+                    <span class="text-[10px] sm:text-xs text-blue-300 font-semibold tracking-wide">د افغانستان جادویي او نوښتګر مارکېټ</span>
+                </div>
+            </div>
+
+            <!-- Search Bar with Province Dropdown -->
+            <div class="flex-1 max-w-2xl hidden md:flex items-center bg-slate-900/80 rounded-2xl p-1.5 border border-white/10 shadow-inner" data-aos="fade-up">
+                <select class="bg-transparent border-none px-4 py-2 text-xs font-bold text-amber-400 focus:outline-none cursor-pointer">
+                    <option value="" class="bg-slate-900 text-white">ټول افغانستان (۳۴ ولایته)</option>
+                    <option value="kabul" class="bg-slate-900 text-white">کابل</option>
+                    <option value="herat" class="bg-slate-900 text-white">هرات</option>
+                    <option value="kandahar" class="bg-slate-900 text-white">کندهار</option>
+                    <option value="balkh" class="bg-slate-900 text-white">بلخ (مزار شریف)</option>
+                    <option value="nangarhar" class="bg-slate-900 text-white">ننګرهار (جلال اباد)</option>
+                </select>
+                <div class="h-6 w-px bg-white/10"></div>
+                <input type="text" placeholder="په جادويي خان بازار کې د توکو، موټرو، موبایلونو لټون وکړئ..." class="w-full bg-transparent px-4 py-2 text-xs focus:outline-none text-white placeholder:text-gray-500">
+                <button class="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-2.5 rounded-xl text-xs font-bold hover:from-blue-500 hover:to-blue-600 transition shadow-neon-blue">
+                    <i class="fa-solid fa-magnifying-glass ml-1"></i> لټون
+                </button>
+            </div>
+
+            <!-- Post Free Ad Button -->
+            <div class="flex items-center space-x-2 space-x-reverse" data-aos="fade-right">
+                <a href="#post-ad" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm flex items-center gap-2 shadow-neon-amber transition-all hover:scale-105">
+                    <i class="fa-solid fa-circle-plus text-base"></i>
+                    <span>وړیا اعلان خپرول</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+
+        <!-- Mobile Search Input with Filter -->
+        <div class="md:hidden mb-6" data-aos="fade-up">
+            <div class="flex items-center glass rounded-2xl p-1.5 border border-white/10 shadow-lg">
+                <select class="bg-transparent border-none px-2 py-2 text-[11px] font-bold text-amber-400 focus:outline-none">
+                    <option value="" class="bg-slate-900 text-white">ټول ولایتونه</option>
+                    <option value="kabul" class="bg-slate-900 text-white">کابل</option>
+                    <option value="herat" class="bg-slate-900 text-white">هرات</option>
+                    <option value="kandahar" class="bg-slate-900 text-white">کندهار</option>
+                </select>
+                <div class="h-6 w-px bg-white/10 mx-1"></div>
+                <input type="text" placeholder="په لټون پیل وکړئ..." class="w-full bg-transparent px-2 py-2 text-xs focus:outline-none text-white placeholder:text-gray-500">
+                <button class="bg-blue-600 text-white px-3.5 py-2 rounded-xl text-xs shadow-neon-blue">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 2026 Hero Banner Section -->
+        <div class="relative bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950 rounded-3xl p-6 sm:p-10 shadow-2xl mb-10 border border-white/10 overflow-hidden" data-aos="zoom-in">
+            <div class="absolute -top-12 -right-12 w-48 h-48 bg-blue-600/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-12 -left-12 w-48 h-48 bg-amber-500/15 rounded-full blur-3xl"></div>
+            
+            <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-right">
+                    <span class="inline-flex items-center bg-blue-500/10 text-blue-400 text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full border border-blue-500/20 font-bold tracking-wide mb-3">
+                        <i class="fa-solid fa-shield-halved text-emerald-400 mr-2 ml-1"></i> د ۳۴ ولایتونو سل په سلو کې باوري او تایید شوي اعلانونه
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-black mt-2 text-white leading-tight">د افغانستان باوري او <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-500">پرمختللی الماس مارکېټ</span></h2>
+                    <p class="text-gray-300 text-xs sm:text-sm mt-3 max-w-2xl leading-relaxed">د ۲۰۲۶ کال تر ټولو نوې ټکنالوژي، له کابل څخه تر هرات، کندهار، بلخ او ننګرهار پورې. له معتبرو پلورونکو سره نیغ په نیغه اړیکه ونیسئ.</p>
+                </div>
+                <div class="flex-shrink-0 bg-slate-800/80 p-5 rounded-3xl border border-white/10 shadow-neon-blue transition-transform hover:scale-105">
+                    <i class="fa-solid fa-gem text-5xl sm:text-6xl text-amber-400"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories Grid Section -->
+        <section class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-lg sm:text-xl font-black text-white flex items-center gap-2.5" data-aos="fade-left">
+                    <i class="fa-solid fa-layer-group text-blue-500"></i> خورا مهمې او تایید شوې کټګورۍ
+                </h3>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+                <!-- Cars -->
+                <div class="glass-card p-4 sm:p-5 rounded-2xl text-center border border-white/5 hover:border-blue-500/50 hover:shadow-neon-blue transition-all cursor-pointer group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20 flex items-center justify-center mx-auto mb-3 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-car text-xl"></i>
+                    </div>
+                    <p class="text-xs font-bold text-gray-200">موټر او وسایط</p>
+                    <span class="text-[9px] text-gray-500">له ۵,۰۰۰ ډېر اعلانونه</span>
+                </div>
+                <!-- Phones -->
+                <div class="glass-card p-4 sm:p-5 rounded-2xl text-center border border-white/5 hover:border-amber-500/50 hover:shadow-neon-amber transition-all cursor-pointer group" data-aos="fade-up" data-aos-delay="150">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center mx-auto mb-3 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-mobile-screen-button text-xl"></i>
+                    </div>
+                    <p class="text-xs font-bold text-gray-200">موبایلونه او برېښنایی</p>
+                    <span class="text-[9px] text-gray-500">ATRA راجستر شوي</span>
+                </div>
+                <!-- Solar -->
+                <div class="glass-card p-4 sm:p-5 rounded-2xl text-center border border-white/5 hover:border-emerald-500/50 hover:shadow-neon-emerald transition-all cursor-pointer group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center mx-auto mb-3 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-solar-panel text-xl"></i>
+                    </div>
+                    <p class="text-xs font-bold text-gray-200">سولر او اینورټرونه</p>
+                    <span class="text-[9px] text-gray-500">د ۲۰۲۶ ماډلونه</span>
+                </div>
+                <!-- Real Estate -->
+                <div class="glass-card p-4 sm:p-5 rounded-2xl text-center border border-white/5 hover:border-red-500/50 hover:shadow-neon-blue transition-all cursor-pointer group" data-aos="fade-up" data-aos-delay="250">
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-400 border border-red-500/20 flex items-center justify-center mx-auto mb-3 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-building text-xl"></i>
+                    </div>
+                    <p class="text-xs font-bold text-gray-200">املاک او منازل</p>
+                    <span class="text-[9px] text-gray-500">شخصي او تجارتي</span>
+                </div>
+                <!-- Agriculture -->
+                <div class="glass-card p-4 sm:p-5 rounded-2xl text-center border border-white/5 hover:border-yellow-500/50 hover:shadow-neon-amber transition-all cursor-pointer group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 rounded-xl bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 flex items-center justify-center mx-auto mb-3 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-wheat-awn text-xl"></i>
+                    </div>
+                    <p class="text-xs font-bold text-gray-200">کرنه او اصلي زعفران</p>
+                    <span class="text-[9px] text-gray-500">صادراتي کیفیت</span>
+                </div>
+                <!-- Rugs & Handicrafts -->
+                <div class="glass-card p-4 sm:p-5 rounded-2xl text-center border border-white/5 hover:border-purple-500/50 hover:shadow-neon-purple transition-all cursor-pointer group" data-aos="fade-up" data-aos-delay="350">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center mx-auto mb-3 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-rug text-xl"></i>
+                    </div>
+                    <p class="text-xs font-bold text-gray-200">لاسي صنایع او قالینې</p>
+                    <span class="text-[9px] text-gray-500">افغاني ډیزاینونه</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Product Listings (Khan Market Cards) -->
+        <section class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-lg sm:text-xl font-black text-white flex items-center gap-2.5" data-aos="fade-left">
+                    <i class="fa-solid fa-bolt text-amber-400"></i> د ځانګړو اعلانونو ویترین (۲۰۲۶)
+                </h3>
+                <span class="text-xs text-blue-400 font-bold hover:underline cursor-pointer">ټول محصولات وګورئ <i class="fa-solid fa-chevron-left text-[10px]"></i></span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Product Card 1 -->
+                <div class="product-card glass-card rounded-3xl border border-white/10" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-image-container h-52">
+                        <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=600&q=80" alt="Toyota Corolla" class="product-image w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 glass text-emerald-400 text-[10px] px-3 py-1 rounded-full font-bold border border-emerald-500/30 flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check text-emerald-400"></i> اسناد پاک ۲۰۲۶
+                        </span>
+                        <span class="absolute bottom-3 left-3 bg-slate-900/80 text-gray-300 text-[10px] px-2.5 py-1 rounded-lg border border-white/10">
+                            <i class="fa-solid fa-location-dot text-blue-400 ml-1"></i> کابل، شهر نو
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-extrabold text-base text-white hover:text-blue-400 transition">Toyota Corolla 2016 S-Class (Automatic)</h4>
+                        <div class="mt-3 flex items-baseline justify-between border-t border-white/5 pt-3">
+                            <div>
+                                <span class="text-xl font-black text-amber-400">890,000</span>
+                                <span class="text-xs font-bold text-amber-300 mr-1">AFN</span>
+                            </div>
+                            <span class="text-xs text-gray-400 font-semibold">($12,500 USD)</span>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between text-xs text-gray-400 mb-4">
+                            <span class="flex items-center gap-1 text-emerald-400 font-bold"><i class="fa-solid fa-circle-check"></i> باوري پلورونکی</span>
+                            <span>۳ ساعته مخکې</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2.5">
+                            <a href="tel:+93700000000" class="bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold py-2.5 px-2 rounded-xl text-center flex items-center justify-center gap-2 border border-white/10 transition">
+                                <i class="fa-solid fa-phone text-blue-400"></i> ټیلیفون
+                            </a>
+                            <a href="https://wa.me/93700000000" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold py-2.5 px-2 rounded-xl text-center flex items-center justify-center gap-2 transition shadow-neon-emerald">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> واټساپ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card glass-card rounded-3xl border border-white/10" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-image-container h-52">
+                        <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80" alt="iPhone 15 Pro Max" class="product-image w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 glass text-blue-400 text-[10px] px-3 py-1 rounded-full font-bold border border-blue-500/30 flex items-center gap-1">
+                            <i class="fa-solid fa-shield-cat text-blue-400"></i> ATRA ثبت
+                        </span>
+                        <span class="absolute bottom-3 left-3 bg-slate-900/80 text-gray-300 text-[10px] px-2.5 py-1 rounded-lg border border-white/10">
+                            <i class="fa-solid fa-location-dot text-blue-400 ml-1"></i> هرات، ولایت چوک
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-extrabold text-base text-white hover:text-blue-400 transition">iPhone 15 Pro Max 256GB Dual SIM Original</h4>
+                        <div class="mt-3 flex items-baseline justify-between border-t border-white/5 pt-3">
+                            <div>
+                                <span class="text-xl font-black text-amber-400">92,500</span>
+                                <span class="text-xs font-bold text-amber-300 mr-1">AFN</span>
+                            </div>
+                            <span class="text-xs text-gray-400 font-semibold">($1,300 USD)</span>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between text-xs text-gray-400 mb-4">
+                            <span class="flex items-center gap-1 text-emerald-400 font-bold"><i class="fa-solid fa-circle-check"></i> باوري پلورونکی</span>
+                            <span>۶ ساعته مخکې</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2.5">
+                            <a href="tel:+93700000000" class="bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold py-2.5 px-2 rounded-xl text-center flex items-center justify-center gap-2 border border-white/10 transition">
+                                <i class="fa-solid fa-phone text-blue-400"></i> ټیلیفون
+                            </a>
+                            <a href="https://wa.me/93700000000" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold py-2.5 px-2 rounded-xl text-center flex items-center justify-center gap-2 transition shadow-neon-emerald">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> واټساپ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card glass-card rounded-3xl border border-white/10" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-image-container h-52">
+                        <img src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=600&q=80" alt="Solar Inverter System" class="product-image w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 glass text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold border border-amber-500/30 flex items-center gap-1">
+                            <i class="fa-solid fa-sun text-amber-400"></i> ۲۰۲۶ جرمني ټکنالوژي
+                        </span>
+                        <span class="absolute bottom-3 left-3 bg-slate-900/80 text-gray-300 text-[10px] px-2.5 py-1 rounded-lg border border-white/10">
+                            <i class="fa-solid fa-location-dot text-blue-400 ml-1"></i> کندهار، عینو مېنه
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-extrabold text-base text-white hover:text-blue-400 transition">Solar Inverter System 5kW Complete Package</h4>
+                        <div class="mt-3 flex items-baseline justify-between border-t border-white/5 pt-3">
+                            <div>
+                                <span class="text-xl font-black text-amber-400">165,000</span>
+                                <span class="text-xs font-bold text-amber-300 mr-1">AFN</span>
+                            </div>
+                            <span class="text-xs text-gray-400 font-semibold">($2,320 USD)</span>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between text-xs text-gray-400 mb-4">
+                            <span class="flex items-center gap-1 text-emerald-400 font-bold"><i class="fa-solid fa-circle-check"></i> باوري پلورونکی</span>
+                            <span>۱ ورځ مخکې</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2.5">
+                            <a href="tel:+93700000000" class="bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold py-2.5 px-2 rounded-xl text-center flex items-center justify-center gap-2 border border-white/10 transition">
+                                <i class="fa-solid fa-phone text-blue-400"></i> ټیلیفون
+                            </a>
+                            <a href="https://wa.me/93700000000" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold py-2.5 px-2 rounded-xl text-center flex items-center justify-center gap-2 transition shadow-neon-emerald">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> واټساپ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4-Pillar Market Segmentation Circles Section -->
+        <section class="glass-card p-6 sm:p-10 rounded-3xl shadow-2xl my-12 border border-white/10 relative overflow-hidden" data-aos="zoom-in-up">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="bg-blue-500/10 text-blue-400 text-xs px-3.5 py-1.5 rounded-full border border-blue-500/20 font-bold">د پېرودونکو دقیق تحلیل (۲۰۲۶)</span>
+                <h3 class="text-2xl sm:text-3xl font-black mt-3 text-white">د خان بازار څلور ګونی جادویي وېش (Segmentation)</h3>
+                <p class="text-gray-400 text-xs sm:text-sm mt-2">افغانستان کې د سوداګرۍ پراختیا لپاره د مارکېټ بې ساري برخې:</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- 1. Geographic (Cyan Neon) -->
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-white/5 text-center flex flex-col items-center hover:border-cyan-500/50 hover:shadow-neon-blue transition-all group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 rounded-full bg-cyan-950/80 text-cyan-400 border-2 border-cyan-500 flex items-center justify-center text-3xl font-black mb-4 shadow-neon-blue group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h4 class="font-extrabold text-base text-cyan-400 mb-1">جغرافیایي وېش</h4>
+                    <p class="text-xs text-gray-400">د ۳۴ ولایتونو، لویو ښارونو او ولسوالیو دقیق تنظیمول.</p>
+                </div>
+
+                <!-- 2. Demographic & Income (Emerald Neon) -->
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-white/5 text-center flex flex-col items-center hover:border-emerald-500/50 hover:shadow-neon-emerald transition-all group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 rounded-full bg-emerald-950/80 text-emerald-400 border-2 border-emerald-500 flex items-center justify-center text-3xl font-black mb-4 shadow-neon-emerald group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <h4 class="font-extrabold text-base text-emerald-400 mb-1">نفوس او عاید</h4>
+                    <p class="text-xs text-gray-400">د مناسبې بودیجې، شغل او عاید له مخې د محصولاتو جلا کول.</p>
+                </div>
+
+                <!-- 3. Psychographic & Interests (Amber Neon) -->
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-white/5 text-center flex flex-col items-center hover:border-amber-500/50 hover:shadow-neon-amber transition-all group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 rounded-full bg-amber-950/80 text-amber-400 border-2 border-amber-500 flex items-center justify-center text-3xl font-black mb-4 shadow-neon-amber group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h4 class="font-extrabold text-base text-amber-400 mb-1">ذوق او سټایل</h4>
+                    <p class="text-xs text-gray-400">خاصو برانډونو او د لوړ کیفیت غوښتونکو پېرودونکو پاملرنه.</p>
+                </div>
+
+                <!-- 4. Behavioral & Loyalty (Purple Neon) -->
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-white/5 text-center flex flex-col items-center hover:border-purple-500/50 hover:shadow-neon-purple transition-all group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 rounded-full bg-purple-950/80 text-purple-400 border-2 border-purple-500 flex items-center justify-center text-3xl font-black mb-4 shadow-neon-purple group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                    </div>
+                    <h4 class="font-extrabold text-base text-purple-400 mb-1">سلوکي او وفاداري</h4>
+                    <p class="text-xs text-gray-400">له باوري او تایید شویو (Verified) پلورونکو سره د نېغ په نېغ معاملو اسانتیا.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Mobile Bottom App Bar (Sticky Top Quality Nav) -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 glass border-t border-white/10 text-white z-50 flex justify-around items-center py-2.5 px-2 shadow-2xl rounded-t-2xl">
+        <a href="#" class="flex flex-col items-center text-blue-400 text-xs">
+            <i class="fa-solid fa-house text-lg"></i>
+            <span class="text-[10px] mt-1 font-bold">کور</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-gray-400 hover:text-white text-xs">
+            <i class="fa-solid fa-border-all text-lg"></i>
+            <span class="text-[10px] mt-1">کټګورۍ</span>
+        </a>
+        <a href="#post-ad" class="flex flex-col items-center text-slate-950 bg-amber-500 rounded-full p-3.5 -mt-6 shadow-neon-amber border-4 border-khanDark transition-transform hover:scale-110">
+            <i class="fa-solid fa-plus text-xl font-black"></i>
+        </a>
+        <a href="#" class="flex flex-col items-center text-gray-400 hover:text-white text-xs">
+            <i class="fa-solid fa-heart text-lg"></i>
+            <span class="text-[10px] mt-1">خوښ شوي</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-gray-400 hover:text-white text-xs">
+            <i class="fa-solid fa-circle-user text-lg"></i>
+            <span class="text-[10px] mt-1">پروفایل</span>
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white border-t border-white/10 pt-10 pb-20 md:pb-8">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-right">
+            <div>
+                <h4 class="font-extrabold text-lg text-white mb-2">KHAN <span class="text-amber-400">MARKET</span> ۲۰۲۶</h4>
+                <p class="text-xs text-gray-400 leading-relaxed max-w-sm mx-auto md:mx-0">د ټول افغانستان لپاره تر ټولو پرمختللی او نوی دیجیتلي مارکېټ. ټول حقونه خوندي دي.</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-sm text-white mb-2">کلیدي مرکزونه</h5>
+                <p class="text-xs text-gray-400">کابل • هرات • کندهار • مزار شریف • جلال اباد</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-sm text-white mb-2">تړون او اړیکه</h5>
+                <p class="text-xs text-gray-400">support@khanmarket2026.af</p>
+            </div>
+        </div>
+        <div class="text-center text-[10px] text-gray-600 border-t border-white/5 pt-6 mt-8">
+            &copy; 2026 Khan Market Afghanistan. ټول حقونه خوندي دي.
+        </div>
+    </footer>
+
+    <!-- AOS Animations Script Initialization -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+    </script>
+</body>
+</html>
+```
