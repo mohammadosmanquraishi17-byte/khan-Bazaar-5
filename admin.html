@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ps" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>د خان بازار د مدیریت او کنترول مرکزي پینل</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Vazirmatn', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+    </style>
+</head>
+<body class="p-6 max-w-6xl mx-auto space-y-6">
+
+    <!-- پورتنی سرلیک او د کنترول حالت -->
+    <header class="bg-[#0B1F3B] text-white p-6 rounded-3xl shadow-lg flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>
+            <h1 class="text-xl font-bold text-[#FF8A00]">🛠️ د خان بازار د مدیریت او کنترول مرکز</h1>
+            <p class="text-xs text-gray-300 mt-1">دلته کولی شئ خپل ټول محصولات، پلورونکي او مالیات په یو ځای کې مدیریت کړئ.</p>
+        </div>
+        <div class="bg-green-500/20 border border-green-500/30 text-green-300 px-4 py-2 rounded-2xl text-xs font-bold">
+            🟢 سیسټم په بشپړ ډول فعال دی
+        </div>
+    </header>
+
+    <!-- د عوایدو او مالیاتو عمومي برخه -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white p-5 rounded-2xl border shadow-sm space-y-1">
+            <span class="text-xs text-gray-500">د پلورونکو میاشتنی فیس</span>
+            <h3 class="text-2xl font-bold text-[#0B1F3B]">۱۲0,۰۰۰ AFN</h3>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border shadow-sm space-y-1">
+            <span class="text-xs text-gray-500">د محصولاتو د ثبتولو عاید</span>
+            <h3 class="text-2xl font-bold text-[#0B1F3B]">۲۱۰,۰۰۰ AFN</h3>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border shadow-sm space-y-1">
+            <span class="text-xs text-gray-500">مجموعه پلاتفورم عاید</span>
+            <h3 class="text-2xl font-bold text-[#FF8A00]">۴۸۰,۰۰۰ AFN</h3>
+        </div>
+    </div>
+
+    <!-- د کنترول او مدیریت اصلي برخې -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- ۱. د توکو او کټګوریو مدیریت -->
+        <div class="bg-white p-6 rounded-3xl border shadow-sm space-y-4">
+            <h3 class="font-bold text-[#0B1F3B] text-base border-b pb-2">📦 د توکو مدیریت</h3>
+            <p class="text-xs text-gray-500">نوي محصولات اضافه کړئ، ستاک کنترول کړئ او یا یې لیرې کړئ.</p>
+            <div class="space-y-2">
+                <input type="text" placeholder="د محصول نوم..." class="w-full text-xs p-3 rounded-xl border bg-gray-50">
+                <button onclick="alert('محصول په بریالیتوب سره اضافه شو!')" class="w-full bg-[#0B1F3B] text-white py-2.5 rounded-xl text-xs font-bold hover:bg-[#FF8A00] hover:text-[#0B1F3B] transition">نوی توکی ثبتول</button>
+            </div>
+        </div>
+
+        <!-- ۲. د پلورونکو سبسکریپشن او تایید -->
+        <div class="bg-white p-6 rounded-3xl border shadow-sm space-y-4">
+            <h3 class="font-bold text-[#0B1F3B] text-base border-b pb-2">💳 د پلورونکو فیسونه</h3>
+            <p class="text-xs text-gray-500">د پلورونکو میاشتني فیسونه وڅارئ او حسابونه یې تایید کړئ.</p>
+            <div class="space-y-2">
+                <div class="text-xs bg-gray-50 p-3 rounded-xl border flex justify-items-center justify-between">
+                    <span>احمد (هرات):</span>
+                    <span class="text-green-600 font-bold">فیس تحویل دی</span>
+                </div>
+                <button onclick="alert('د پلورونکو مالی لست تازه شو!')" class="w-full bg-[#0B1F3B] text-white py-2.5 rounded-xl text-xs font-bold hover:bg-[#FF8A00] hover:text-[#0B1F3B] transition">د پلورونکو لست کتل</button>
+            </div>
+        </div>
+
+        <!-- ۳. د آشنا AI او ترتیباتو برخه -->
+        <div class="bg-white p-6 rounded-3xl border shadow-sm space-y-4">
+            <h3 class="font-bold text-[#0B1F3B] text-base border-b pb-2">🤖 د آشنا AI (Gemini)</h3>
+            <p class="text-xs text-gray-500">د هوښیار مرستیال سره اړیکه او د محصول توضیحاتو ازموینه.</p>
+            <div class="space-y-2">
+                <input type="text" placeholder="حالت وپوښتئ..." class="w-full text-xs p-3 rounded-xl border bg-gray-50">
+                <button onclick="alert('آشنا AI چمتو او فعال دی!')" class="w-full bg-[#FF8A00] text-[#0B1F3B] py-2.5 rounded-xl text-xs font-bold hover:opacity-90 transition">د AI ازموینه</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
